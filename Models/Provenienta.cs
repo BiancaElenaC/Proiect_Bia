@@ -10,7 +10,7 @@ namespace Proiect__Bia.Models
 
         [Required(ErrorMessage = "Provenienta este obligatorie!")]
        
-        public string TipProvenienta { get; set; } // Tipul provenientei (Abandon, Preluare etc.)
+        public string TipProvenienta { get; set; } // Tipul provenientei (Abandon, Preluare etc)
        
         public ICollection<Copil>? Copii { get; set; } // Relatie cu clasa Copil
     }
