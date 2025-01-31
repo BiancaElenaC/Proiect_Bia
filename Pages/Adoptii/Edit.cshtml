@@ -1,0 +1,50 @@
+﻿@page
+@model Proiect__Bia.Pages.Adoptii.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Adoptie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Adoptie.ID" />
+            <div class="form-group">
+                <label asp-for="Adoptie.CopilID" class="control-label"></label>
+                <select asp-for="Adoptie.CopilID" class="form-control" asp-items="ViewBag.CopilID"></select>
+                <span asp-validation-for="Adoptie.CopilID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adoptie.AdoptatorID" class="control-label"></label>
+                <select asp-for="Adoptie.AdoptatorID" class="form-control" asp-items="ViewBag.AdoptatorID"></select>
+                <span asp-validation-for="Adoptie.AdoptatorID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adoptie.DataAdoptiei" class="control-label"></label>
+                <input asp-for="Adoptie.DataAdoptiei" class="form-control" />
+                <span asp-validation-for="Adoptie.DataAdoptiei" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adoptie.StareAdoptie" class="control-label"></label>
+                <input asp-for="Adoptie.StareAdoptie" class="form-control" />
+                <span asp-validation-for="Adoptie.StareAdoptie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

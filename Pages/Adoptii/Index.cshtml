@@ -1,0 +1,72 @@
+﻿@page
+@model Proiect__Bia.Pages.Adoptii.IndexModel
+
+@{
+    ViewData["Title"] = "Adoptii";
+}
+
+<h1>Adoptii</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<!--Formular pentru cautare-->
+
+<form method="get">
+    <div class="form-group">
+        <input type="text" name="SearchString" value="@Model.SearchString" class="form-control"
+               placeholder="Cautare dupa Nume/ Prenume copil sau Nume/ Prenume adoptator" />
+        <button type="submit" class="btn btn-primary mt-2">Cauta</button>
+        <a asp-page="./Index" class="btn btn-secondary mt-2">Reseteaza</a>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Adoptie[0].Copil)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adoptie[0].Adoptator)
+            </th>
+            <th>
+
+                @*@Html.DisplayNameFor(model => model.Adoptie[0].DataAdoptiei)*@
+
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+                    Data Adoptiei
+                </a>
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adoptie[0].StareAdoptie)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Adoptie) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Copil.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adoptator.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataAdoptiei)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StareAdoptie)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

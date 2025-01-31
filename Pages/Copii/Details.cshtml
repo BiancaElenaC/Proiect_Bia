@@ -1,0 +1,55 @@
+﻿@page
+@model Proiect__Bia.Pages.Copii.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Copil</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Copil.Nume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Copil.Nume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Copil.Prenume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Copil.Prenume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Copil.DataNasterii)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Copil.DataNasterii)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Copil.DataIntrariiInSistem)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Copil.DataIntrariiInSistem)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Copil.Provenienta)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Copil.Provenienta.ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Copil.Locatie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Copil.Locatie.ID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Copil.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
